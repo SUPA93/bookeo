@@ -10,7 +10,8 @@ class Controller
             switch ($_GET['controller']) {
                 case 'page':
                     //charger le controleur page
-                    var_dump('On charge PageController');
+                    $pageController = new PageController();
+                    $pageController->route();
                     break;
                 case 'book':
                     // charger le controleur book
