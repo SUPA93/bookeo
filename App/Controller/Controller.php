@@ -25,4 +25,9 @@ class Controller
             // charger la page d'accueil
         }
     }
+    //méthode de rendu
+    protected function render(string $path, array $params = []):void
+    {
+        require _ROOTPATH_.'/templates/page/about.php';
+    }
 }

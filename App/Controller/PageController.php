@@ -10,7 +10,7 @@ class PageController extends Controller
             switch ($_GET['action']) {
                 case 'about':
                     //appeler la méthode about()
-                    var_dump('On appelle la méthode about');
+                    $this->about();
                     break;
                 case 'home':
                     // appeler la méthode home()
@@ -24,5 +24,20 @@ class PageController extends Controller
             // charger la page d'accueil
         }
     }
+
+    protected function about()
+    {
+        /*on pourrait récupérer les données
+        en faisant appel au modèle
+        */
+
+
+        $this->render('page/about');
+    }
+    
+
 }
+
+
+
 ?>
