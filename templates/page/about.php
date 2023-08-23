@@ -1,13 +1,15 @@
-<?php 
+<?php
 
-require_once _ROOTPATH_.'\templates\header.php';
+require_once _ROOTPATH_ . '\templates\header.php';
 
 ?>
 
 <h1> A propos</h1>
+<h2><?php echo $test; ?></h2>
+<h2><?php echo $test2; ?></h2>
 
-<?php 
+<?php
 
-require_once _ROOTPATH_.'\templates\footer.php';
+require_once _ROOTPATH_ . '\templates\footer.php';
 
 ?>

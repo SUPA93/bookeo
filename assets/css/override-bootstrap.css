@@ -54,6 +54,7 @@
 
 h1 {
   color: var(--primary);
+  text-align: center;
 }
 
 h2,

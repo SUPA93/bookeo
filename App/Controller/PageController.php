@@ -27,17 +27,13 @@ class PageController extends Controller
 
     protected function about()
     {
-        /*on pourrait récupérer les données
-        en faisant appel au modèle
-        */
+        $params = [
+            'test'=> 'abc',
+            'test2'=> 'def',
+        ];
 
-
-        $this->render('page/about');
+        $this->render('page/about', $params);
     }
     
 
 }
-
-
-
-?>
