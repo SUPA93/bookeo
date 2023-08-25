@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\BookRepository;
+
 
 class BookController extends Controller
 {
@@ -46,8 +48,25 @@ class BookController extends Controller
     //Affichage de la page show
     protected function show()
     {
-        $params = [];
+        try {
+            if (isset($_GET['id'])) {
+                $id = (int)$_GET['id'];
+                //charger le livre par un appel au repository
+                $bookRepository = new BookRepository();
+                $book =$bookRepository->findOneById($id);
 
-        $this->render('book/show', $params);
+                
+
+                $this->render('book/show', [
+                    'book' => $book
+                ]);
+            } else {
+                throw new \Exception("L'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 }
