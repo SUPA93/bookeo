@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 class PageController extends Controller
 {
     public function route(): void
