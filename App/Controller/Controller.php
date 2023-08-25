@@ -8,24 +8,33 @@ class Controller
 {
     public function route(): void
     {
-        if (isset($_GET['controller'])) {
-            switch ($_GET['controller']) {
-                case 'page':
-                    //charger le controleur page
-                    $pageController = new PageController();
-                    $pageController->route();
-                    break;
-                case 'book':
-                    // charger le controleur book
-                    var_dump('On charge BookController');
-                    break;
-                default:
-                    //erreur
-                    break;
+        try {
+            if (isset($_GET['controller'])) {
+                switch ($_GET['controller']) {
+                    case 'page':
+                        //charger le controleur page
+                        $pageController = new PageController();
+                        $pageController->route();
+                        break;
+                    case 'book':
+                        // charger le controleur book
+                        var_dump('On charge BookController');
+                        break;
+                    default:
+                        throw new \Exception("le controleur n'existe pas");
+                        break;
+                }
+            } else {
+                // charger la page d'accueil par defaut.
+                $pageController = new PageController();
+                $pageController->home();
+    
             }
-        } else {
-            // charger la page d'accueil
 
+        } catch(\Exception $e){
+            $this->render('errors/default',[
+                'error'=> $e-> getMessage()
+            ]);
         }
     }
     //méthode de rendu

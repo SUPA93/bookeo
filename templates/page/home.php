@@ -1,3 +1,8 @@
+<?php
+
+require_once _ROOTPATH_ . '\templates\header.php';
+
+?>
 <!-- article -->
 
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -45,5 +50,10 @@
             </div>
         </div>
     </div>
-
+    
 </div>
+<?php
+
+require_once _ROOTPATH_ . '\templates\footer.php';
+
+?>
